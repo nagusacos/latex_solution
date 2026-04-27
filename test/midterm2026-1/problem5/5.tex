@@ -5,17 +5,60 @@
 \usepackage{geometry}
 \geometry{
     margin=1in,
-    headheight=20pt,  % 헤더 높이
-    footskip=10mm     % 페이지 번호와 본문 사이 간격
+    headheight=20pt,
+    footskip=10mm
 }
-\title{Title}
-\author{Name}
+\title{5}
+\author{Nagusa, G}
 \date{\today}
 
 \begin{document}
 \maketitle
 
-\section*{Main}
 
+\section*{Problem}
+For each of the following rings $R$,
+prove that the only ring isomorphism from $R$ to itself is the identity map.
+\begin{enumerate}
+    \item $R=\mathbb{Z}_p \text{ (p is a prime.) }$
+    \item $R=\mathbb{Q}$
+\end{enumerate}
+
+\section*{Proof}
+Let $\phi : R \to R$ be a ring isomorphism.\\
+For $0_R, 1_R$, we know $\phi(0_R) = 0_R$ and $\phi(1_R) = 1_R$.\\
+Since $\phi$ is an isomorphism, the following holds for any positive integer $n$:
+\begin{itemize}
+    \item $\phi({}_n 1_R) = \phi(1_R + 1_R + ... + 1_R) = \phi(1_R) + \phi(1_R) + ... + \phi(1_R) = {}_n \phi(1_R) = {}_n 1_R$
+    \item $\phi({}_0 1_R) = \phi(0_R) = 0_R = {}_0 1_R$
+    \item $\phi({}_{-n} 1_R) = \phi(-({}_n 1_R)) = -\phi({}_n 1_R) = -({}_n 1_R) = {}_{-n} 1_R$
+\end{itemize}
+Thus we obtain that
+\[
+\phi({}_{n} 1_R) = {}_{n} 1_R \text{ for any integer } n
+\]
+
+\subsection*{1. Claim for $R=\mathbb{Z}_p$}
+Any $a \in \mathbb{Z}_p$ can be written as ${}_k 1_R$ for some integer $k$.
+\[
+\phi(a) = \phi({}_k 1_R)= {}_k 1_R = a
+\]
+Thus, $\phi(a) = a$ holds for all $a \in \mathbb{Z}_p$.
+
+\subsection*{2. Claim for $R=\mathbb{Q}$}
+For $a=0$, $\phi(0)=0$.\\
+Assume that $a\in \mathbb{Q}\backslash\{0\}$, then $a = \frac{p}{q}$ for some $p, q \in \mathbb{Z}\backslash\{0\}$.
+\begin{align*}
+    &\Rightarrow
+    \begin{cases}
+        p = a \cdot q\\
+        p = \phi(p) = \phi(a \cdot q) = \phi(a) \cdot \phi(q) = \phi(a) \cdot q
+    \end{cases} &\because p,q \in \mathbb{Z}\\
+    &\Rightarrow \phi(a) \cdot q = a \cdot q\\
+    &\Rightarrow \phi(a) = a &\because q\neq 0
+\end{align*}
+Thus, $\phi(a) = a$ holds for all $a \in \mathbb{Q}$.
+
+\subsection*{$\therefore$ The only ring isomorphism from $R$ to itself is the identity map for both $R=\mathbb{Z}_p$ and $R=\mathbb{Q}$.}
 
 \end{document}

@@ -19,63 +19,42 @@
 Let $M_2(\mathbb{Z})$ be a ring of $2\times2$ matrices with integer entries, and let $A\in M_2(\mathbb{Z})$.\\
 Prove that 
 \begin{itemize}
-    \item $A \text{ is a unit in } M_2(\mathbb{Z}) \Longleftrightarrow  \det{A} = 1$ or $-1$
+    \item $A \text{ is a unit in } M_2(\mathbb{Z}) \Longleftrightarrow  \det(A) = 1 \text{ or } -1$
 \end{itemize}
 
 \section*{Proof}
 
 \subsection*{$(\Leftarrow)$}
-Let $M_2(\mathbb{Z})$ be a ring, and let $A\in M_2(\mathbb{Z})$ s.t. $\det(A) = 1$ or $-1$\\
-On $M_2(\mathbb{R})$,
-\begin{align*}
-    \det(A) \neq 0 &\Leftrightarrow A \text{ is nonsingular}\\
-    &\Leftrightarrow A \text{ has a inverse matrix } A^{-1} \in M_2(\mathbb{R})\\
-\end{align*}
-We found that $A$ is a unit in $M_2(\mathbb{R})$\\
-Since $M_2(\mathbb{Z}) \subset M_2(\mathbb{R})$ and $M_2(\mathbb{Z})$ is a ring,
-$A^{-1}$ should be in $M_2(\mathbb{Z})$, otherwise this contradicts to our supposition that $M_2(\mathbb{Z})$ is a ring.\\
-Thus $A$ has a multiplicative inverse  $A^{-1}$ in $M_2(\mathbb{Z})$ $\Longleftrightarrow$ $A$ is a unit in $M_2(\mathbb{Z})$
+Suppose $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \in M_2(\mathbb{Z})$ such that $\det(A) = 1$ or $-1$.\\
+On $M_2(\mathbb{R})$, $A$ is nonsingular since $\det(A) \neq 0$, so $A$ has an inverse matrix $A^{-1}$.\\
+The inverse of $2\times2$ matrix is that
+\[
+A^{-1} = \frac{1}{\det(A)} 
+\begin{bmatrix}
+    d & -b \\
+    -c & a
+\end{bmatrix}
+= \pm
+\begin{bmatrix}
+    d & -b \\
+    -c & a
+\end{bmatrix}
+\]
+Since $a, -b, -c, d \in \mathbb{Z}$, we obtain that $A^{-1} \in M_2(\mathbb{Z})$\\
+Thus, $A$ is a unit in $M_2(\mathbb{Z})$.
 
 \subsection*{$(\Rightarrow)$}
-Let $M_2(\mathbb{Z})$ be a ring, and let $A\in M_2(\mathbb{Z})$ s.t $A$ is a unit in $M_2(\mathbb{Z})$\\
-Then
-\[
-\text{ for }
-A = 
-\begin{bmatrix}
-    a & b \\
-    c & d
-\end{bmatrix},\
-\text{there is }
-A^{-1} =
-\begin{bmatrix}
-    a' & b' \\
-    c' & d'
-\end{bmatrix}
-\in M_2(\mathbb{Z})\
-\text{ such that }
-AA^{-1} = A^{-1}A = I_2
-\]
-We derive that on $M_2(\mathbb{R})$
+Suppose $A$ is a unit in $M_2(\mathbb{Z})$.\\
+Then there exists $A^{-1} \in M_2(\mathbb{Z})$ such that $AA^{-1} = A^{-1}A = I_2$.\\
+We derive that
 \begin{align*}
-    M_2(\mathbb{Z}) \subset M_2(\mathbb{R}) &\Rightarrow A^{-1}\in M_2(\mathbb{R})\\
-    &\Rightarrow A \text{ has a inverse matrix } A^{-1} \in M_2(\mathbb{R}) \\
-    &\Rightarrow \det(A) \neq 0\\
-    &\Rightarrow |\det(A)| > 0\\
-    &\Rightarrow |\det(A)| = |ad-bc| \geq 1 \quad \text{ since } a,b,c,d\in \mathbb{Z} 
+    \det(AA^{-1}) &= \det(I_2)\\
+    \det(A)\cdot \det(A^{-1}) &= 1
 \end{align*}
-We obtain $|\det(A)| \geq 1$\\
-From this, we derive that
-\begin{align*}
-     &1 = |\det(I_2)| = |\det(A)\det(A^{-1})| = |\det(A)||\det(A^{-1})| \geq |\det(A^{-1})| > 0\\
-    \Rightarrow &1 \geq |\det(A^{-1})| > 0\\
-    \Rightarrow &1 = |\det(A^{-1})| \quad \text{ since } a',b',c',d'\in \mathbb{Z} \\
-    \Rightarrow &1 = |\det(A)|\\
-    \Rightarrow &\det(A) = 1 \text{ or } -1
-\end{align*}
+Since $A, A^{-1} \in M_2(\mathbb{Z})$, we obtain that $\det(A), \det(A^{-1}) \in \mathbb{Z}$.\\
+the only solution of $a\cdot b=1$ in $\mathbb{Z}$ is that $1\cdot1 = (-1)\cdot(-1) = 1$\\
+Thus, $\det(A) = 1$ or $-1$.
 
-
-
-
+\subsection*{$\therefore A \text{ is a unit in } M_2(\mathbb{Z}) \Longleftrightarrow  \det(A) = 1 \text{ or } -1$}
 
 \end{document}
