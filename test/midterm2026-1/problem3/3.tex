@@ -14,28 +14,39 @@
 
 \begin{document}
 \maketitle
+
+%================================================================
+
+\section*{Problem}
+Let $R$ be a commutative ring.
+We say that an element $a \in R$ is $nilpotent$ if
+\[
+a^n = 0_R \text{ for some positive integer } n
+\]
+Prove that the subset of $R$ consisting of all $nilpotent$ elements is a subring of $R$.
+
 %================================================================
 
 \section*{Proof}
-Let $R$ be a commutative ring, and let $S$ be the subset of all nilpotent elements in $R$ such that
+Let $R$ be a commutative ring, and let $S$ be the subset of all $nilpotent$ elements in $R$ such that
 \[ S = \{ r \in R \mid r^n = 0_R \text{ for some positive integer } n \} \] 
-We will show that $S$ is a subring of $R$:
+We will show the following to prove $S$ is a subring of $R$.
 \begin{enumerate}
-    \item $0_R \in S$.
-    \item $S$ is closed under addition.
-    \item $S$ is closed under multiplication.
+    \item $0_R \in S$
+    \item $a+(-b) \in S$ for all $a,b \in S$
+    \item $a\cdot b \in S$ for all $a,b\in S$
 \end{enumerate}
 
 \subsection*{1.}
-On $R$, We derive that
+On $R$, we derive that
 $${0_R}^n = {0_R}^{n-1}\cdot{0_R} = {0_R} \text{ for any positive integer } n $$
 Thus $0_R$ is nilpotent. $\Leftrightarrow$ $0_R \in S$
 
 \subsection*{2.}
 we will prove this in two step
 \begin{itemize}
-    \item 1: If $a$ is nilpotent, then $(-a)$ is  nilpotent.
-    \item 2: $S$ is closed under addition.
+    \item 1: $(-a)\in S$
+    \item 2: $a+b\in S$
 \end{itemize}
 
 \subsubsection*{$\bullet$ 1:}
@@ -51,19 +62,33 @@ Since $R$ is a ring, there is $(-a)\in R$
     Then $(-a)^n = (-a)^{2k+1} = (-a)^{2k}\cdot(-a) = 0_R\cdot(-a) = 0_R$ \\
     We obtain that $(-a)$ is nilpotent
 \end{itemize}
-Thus $(-a)$ is nilpotent $\Leftrightarrow$ $(-a)\in S$
+Thus $(-a)$ is $nilpotent$ $\Leftrightarrow$ $(-a)\in S$
 
 \subsubsection*{$\bullet$ 2:}
 Let $a,b\in S$, then there are some positive integer $n,m$ such that $a^n = 0_R, b^m = 0_R $ \\
-Then $(a+b)^{n+m} =$
-Thus $(a+b)$ is nilpotent. $\Leftrightarrow$ $(a+b) \in S$
+Consider the expansion
+\[
+(a+b)^{n+m} = \sum (\text{terms of the form } C \cdot a^i b^j \text{ where } i+j = n+m)
+\]
+This follows from that $R$ is a commutative ring.\\
+For each term, $i \ge n$ or $j \ge m$ holds (otherwise $i+j < n+m$).
+\begin{itemize}
+    \item[--] \textbf{Case 1: $i \ge n$} \\
+    $a^ib^j = (a^n \cdot a^{i-n})b^j = (0_R \cdot a^{i-n})b^j = 0_R$
+    \item[--] \textbf{Case 2: $j \ge m$} \\
+    $a^ib^j = a^i(b^m \cdot b^{j-m}) = a^i(0_R \cdot b^{j-m}) = 0_R$
+\end{itemize}
+We obtain that $a^ib^j = 0_R \text{ where } i+j = n+m$, moreover
+\[
+(a+b)^{n+m} = \sum (\text{terms of the form } C \cdot 0_R) = 0_R
+\]
+Thus, $a+b$ is $nilpotent$ $\Leftrightarrow$ $a+b \in S$.
 
 \subsection*{3.}
 Let $a,b\in S$, then there are some positive integer $n$ such that $a^n = 0_R$  \\
-Then $(a\cdot b)^n = a^n\cdot b^n = 0_R\cdot b^n = 0_R$\\
-Thus $(a\cdot b)$ is nilpotent. $\Leftrightarrow$ $(a\cdot b) \in S$
+Then $(a\cdot b)^n = a^n\cdot b^n = 0_R\cdot b^n = 0_R$ (since $R$ is a commutative ring)\\
+Thus $a\cdot b$ is $nilpotent$. $\Leftrightarrow$ $a\cdot b \in S$
 
 \subsection*{$\therefore$ $S$ is a subring of $R$}
-
 
 \end{document}

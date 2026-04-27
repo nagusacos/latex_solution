@@ -32,7 +32,7 @@ We will show the following to prove $Z$ is a subring of $R$.
 \begin{enumerate}
     \item $0_R \in Z$
     \item $a+(-b) \in Z$ for all $a,b \in Z$
-    \item $ab \in Z$ for all $a,b\in Z$
+    \item $a\cdot b \in Z$ for all $a,b\in Z$
 \end{enumerate}
 
 \subsection*{1.}
@@ -43,16 +43,36 @@ On $R$, we derive that
 Thus $0_R \in Z$
 
 \subsection*{2.}
-Let $a,b\in Z$.\\
-Since $b\in R$, there is $(-b)\in R$
+Let $a,b\in Z$ ,and let $r\in R$\\
+Since $b\in R$, there is $(-b)\in R$\\
 We derive that on $R$
-\[
-(a+(-b))\cdot r = a\cdot r +-(b\cdot r) = r\cdot a +(-b)\cdot r = 
-\]
-
+\begin{align*}
+    (a+(-b))\cdot r
+    &= a\cdot r + (-b)\cdot r\\
+    &= a\cdot r + (-(b\cdot r))\\
+    &= r\cdot a + (-(r\cdot b)) \quad \text{ since } a,b\in Z\\
+    &= r\cdot a + r \cdot (-b)\\
+    &= r\cdot (a+(-b))\\[10pt]
+    &\Updownarrow\\[10pt]
+    (a+(-b))\cdot r &= r\cdot (a+(-b)) \quad \text{ for all } r\in R
+\end{align*}
+Thus $a+(-b)\in Z$ for all $a,b\in Z$
 
 \subsection*{3.}
+Let $a,b\in Z$ ,and let $r\in R$\\
+We derive that on $R$
+\begin{align*}
+    (a\cdot b)\cdot r
+    &= a\cdot (b\cdot r)\\
+    &= a\cdot (r\cdot b) \quad \text{ since } b\in Z\\
+    &= (a\cdot r)\cdot b\\
+    &= (r\cdot a)\cdot b \quad \text{ since } a\in Z\\
+    &= r\cdot (a\cdot b)\\[10pt]
+    &\Updownarrow\\[10pt]
+    (a\cdot b)\cdot r &= r\cdot (a\cdot b) \quad \text{ for all } r\in R
+\end{align*}
+Thus $a\cdot b\in Z$ for all $a,b\in Z$
 
-
+\subsection*{$\therefore$ $Z$ is a subring of $R$}
 
 \end{document}
