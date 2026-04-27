@@ -5,8 +5,8 @@
 \usepackage{geometry}
 \geometry{
     margin=1in,
-    headheight=20pt,  % 헤더 높이
-    footskip=10mm     % 페이지 번호와 본문 사이 간격
+    headheight=20pt,
+    footskip=10mm
 }
 \title{2}
 \author{Nagusa, G}
@@ -15,6 +15,8 @@
 \begin{document}
 \maketitle
 
+%================================================================
+
 \section*{Problem}
 Let $R$ be a ring.
 Prove that
@@ -22,16 +24,34 @@ Prove that
     \item The subset $Z = \{z \in R \mid zr =rz \text{ for all } r \in R\}$ is a subring of $R$.
 \end{itemize}
 
+%================================================================
+
 \section*{Proof}
 Let $R$ be a ring.\\
-We will show the followings to prove $Z$ is a subring of $R$.
+We will show the following to prove $Z$ is a subring of $R$.
 \begin{enumerate}
     \item $0_R \in Z$
     \item $a+(-b) \in Z$ for all $a,b \in Z$
     \item $ab \in Z$ for all $a,b\in Z$
 \end{enumerate}
 
+\subsection*{1.}
+On $R$, we derive that
+\[
+0_R = r \cdot 0_R = 0_R \cdot r \text{ for all } r \in R
+\]
+Thus $0_R \in Z$
 
+\subsection*{2.}
+Let $a,b\in Z$.\\
+Since $b\in R$, there is $(-b)\in R$
+We derive that on $R$
+\[
+(a+(-b))\cdot r = a\cdot r +-(b\cdot r) = r\cdot a +(-b)\cdot r = 
+\]
+
+
+\subsection*{3.}
 
 
 

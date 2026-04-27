@@ -5,17 +5,65 @@
 \usepackage{geometry}
 \geometry{
     margin=1in,
-    headheight=20pt,  % 헤더 높이
-    footskip=10mm     % 페이지 번호와 본문 사이 간격
+    headheight=20pt,
+    footskip=10mm
 }
-\title{Title}
-\author{Name}
+\title{3}
+\author{Nagusa, G}
 \date{\today}
 
 \begin{document}
 \maketitle
+%================================================================
 
-\section*{Main}
+\section*{Proof}
+Let $R$ be a commutative ring, and let $S$ be the subset of all nilpotent elements in $R$ such that
+\[ S = \{ r \in R \mid r^n = 0_R \text{ for some positive integer } n \} \] 
+We will show that $S$ is a subring of $R$:
+\begin{enumerate}
+    \item $0_R \in S$.
+    \item $S$ is closed under addition.
+    \item $S$ is closed under multiplication.
+\end{enumerate}
+
+\subsection*{1.}
+On $R$, We derive that
+$${0_R}^n = {0_R}^{n-1}\cdot{0_R} = {0_R} \text{ for any positive integer } n $$
+Thus $0_R$ is nilpotent. $\Leftrightarrow$ $0_R \in S$
+
+\subsection*{2.}
+we will prove this in two step
+\begin{itemize}
+    \item 1: If $a$ is nilpotent, then $(-a)$ is  nilpotent.
+    \item 2: $S$ is closed under addition.
+\end{itemize}
+
+\subsubsection*{$\bullet$ 1:}
+Let $a\in S$, then there is some positive integer $n$ such that $a^n = 0_R$  \\
+Since $R$ is a ring, there is $(-a)\in R$
+\begin{itemize}
+    \item[--] \textbf{Case 1: $n$ is even.} \\
+    Let $n = 2k$ for some integer $k$ \\
+    Then $(-a)^n = (-a)^{2k} = ((-a)^2)^k = (a^2)^k = a^{2k} = (a^k)^2 = (0_R)^2 = 0_R$ \\
+    We obtain that $(-a)$ is nilpotent
+    \item[--] \textbf{Case 2: $n$ is odd.} \\
+    Let $n = 2k+1$ for some integer $k$ \\
+    Then $(-a)^n = (-a)^{2k+1} = (-a)^{2k}\cdot(-a) = 0_R\cdot(-a) = 0_R$ \\
+    We obtain that $(-a)$ is nilpotent
+\end{itemize}
+Thus $(-a)$ is nilpotent $\Leftrightarrow$ $(-a)\in S$
+
+\subsubsection*{$\bullet$ 2:}
+Let $a,b\in S$, then there are some positive integer $n,m$ such that $a^n = 0_R, b^m = 0_R $ \\
+Then $(a+b)^{n+m} =$
+Thus $(a+b)$ is nilpotent. $\Leftrightarrow$ $(a+b) \in S$
+
+\subsection*{3.}
+Let $a,b\in S$, then there are some positive integer $n$ such that $a^n = 0_R$  \\
+Then $(a\cdot b)^n = a^n\cdot b^n = 0_R\cdot b^n = 0_R$\\
+Thus $(a\cdot b)$ is nilpotent. $\Leftrightarrow$ $(a\cdot b) \in S$
+
+\subsection*{$\therefore$ $S$ is a subring of $R$}
 
 
 \end{document}
