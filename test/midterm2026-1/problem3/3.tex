@@ -15,8 +15,6 @@
 \begin{document}
 \maketitle
 
-%================================================================
-
 \section*{Problem}
 Let $R$ be a commutative ring.
 We say that an element $a \in R$ is $nilpotent$ if
@@ -24,8 +22,6 @@ We say that an element $a \in R$ is $nilpotent$ if
 a^n = 0_R \text{ for some positive integer } n
 \]
 Prove that the subset of $R$ consisting of all $nilpotent$ elements is a subring of $R$.
-
-%================================================================
 
 \section*{Proof}
 Let $R$ be a commutative ring, and let $S$ be the subset of all $nilpotent$ elements in $R$ such that
@@ -56,11 +52,9 @@ Since $R$ is a ring, there is $(-a)\in R$
     \item[--] \textbf{Case 1: $n$ is even.} \\
     Let $n = 2k$ for some integer $k$ \\
     Then $(-a)^n = (-a)^{2k} = ((-a)^2)^k = (a^2)^k = a^{2k} = (a^k)^2 = (0_R)^2 = 0_R$ \\
-    We obtain that $(-a)$ is nilpotent
     \item[--] \textbf{Case 2: $n$ is odd.} \\
     Let $n = 2k+1$ for some integer $k$ \\
     Then $(-a)^n = (-a)^{2k+1} = (-a)^{2k}\cdot(-a) = 0_R\cdot(-a) = 0_R$ \\
-    We obtain that $(-a)$ is nilpotent
 \end{itemize}
 Thus $(-a)$ is $nilpotent$ $\Leftrightarrow$ $(-a)\in S$
 
