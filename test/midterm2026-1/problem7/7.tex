@@ -1,3 +1,4 @@
+
 \documentclass[11pt, a4paper]{article}
 \usepackage{amsthm}
 \usepackage{amsmath}
@@ -16,13 +17,63 @@
 \maketitle
 
 \section*{Problem}
-Let $R$ be a ring with unity $1_R$ such that $1_R\neq 0_R$ and let $a \in R$.\\
+Let $R$ be a ring with unity $1_R$ such that $1_R\neq 0_R$, and let $a \in R$.\\
 Prove that
 \begin{enumerate}
-    \item If $a$ is an unit, then $a$ is not a zero divisor.
+    \item If $a$ is a unit, then $a$ is not a zero divisor.
     \item If $a$ is not a zero divisor and $ab=1_R$ for some $b\in R$, then $ba=1_R$
 \end{enumerate}
 
 \section*{Proof}
+Let $R$ be a ring with unity $1_R$ such that $1_R\neq 0_R$
+
+\subsection*{1.}
+Let $a \in R$ be a unit.\\
+Since $a$ is a unit, there is a multiplicative inverse $a^{-1} \in R$ such that $a^{-1}a=aa^{-1}=1_R$.\\
+For contradiction, suppose that $a$ is also a zero divisor.\\
+Since $a$ is a zero divisor, there is a nonzero element $r \in R$ ($r \neq 0_R$) such that $ar = 0_R$ or $ra = 0_R$.\\
+We consider two cases:
+\begin{itemize}
+    \item[--] \textbf{Case 1: $ar = 0_R$}\\
+    \begin{align*}
+        ar &= 0_R\\
+        a^{-1}(ar) &= a^{-1}0_R\\
+        (a^{-1}a)r &= 0_R\\
+        (1_R)r &= 0_R\\
+        r &= 0_R
+    \end{align*}
+    This contradicts the assumption that $r \neq 0_R$.
+    
+    \item[--] \textbf{Case 2: $ra = 0_R$}\\
+    \begin{align*}
+        ra &= 0_R\\
+        (ra)a^{-1} &= 0_Ra^{-1}\\
+        r(aa^{-1}) &= 0_R\\
+        r(1_R) &= 0_R\\
+        r &= 0_R
+    \end{align*}
+    This also contradicts the assumption that $r \neq 0_R$.
+\end{itemize}
+Since both cases lead to a contradiction, our initial supposition is false. \\
+Thus $a$ is not a zero divisor.
+
+\subsection*{2.}
+Let $a \in R$ not be a zero divisor, and let $b \in R$ such that $ab=1_R$.\\
+Since $ab = 1_R \neq 0_R$, we know that $a \neq 0_R$. \\
+We derive that
+\begin{align*}
+    ab &= 1_R\\
+    (ab)a &= (1_R)a\\
+    a(ba) &= a\\
+    a(ba)+(-a) &= a + (-a)\\
+    a(ba)+a(-1_R) &= 0_R\\
+    a(ba+(-1_R)) &= 0_R
+\end{align*}
+Because $a \neq 0_R$ and $a$ is not a zero divisor, this implies that
+\begin{align*}
+    ba+(-1_R) &= 0_R \\
+    ba &= 1_R
+\end{align*}
+Thus $ba=1_R.$
 
 \end{document}

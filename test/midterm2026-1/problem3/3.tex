@@ -17,71 +17,74 @@
 
 \section*{Problem}
 Let $R$ be a commutative ring.
-We say that an element $a \in R$ is $nilpotent$ if
+We say that an element $a \in R$ is nilpotent if
 \[
 a^n = 0_R \text{ for some positive integer } n
 \]
-Prove that the subset of $R$ consisting of all $nilpotent$ elements is a subring of $R$.
+Prove that the subset of $R$ consisting of all nilpotent elements is a subring of $R$.
 
 \section*{Proof}
-Let $R$ be a commutative ring, and let $S$ be the subset of all $nilpotent$ elements in $R$ such that
+Let $R$ be a commutative ring, and let $S$ be the set of all nilpotent elements in $R$:
 \[ S = \{ r \in R \mid r^n = 0_R \text{ for some positive integer } n \} \] 
-We will show the following to prove $S$ is a subring of $R$.
+We will verify the following to prove that $S$ is a subring of $R$:
 \begin{enumerate}
     \item $0_R \in S$
-    \item $a+(-b) \in S$ for all $a,b \in S$
-    \item $a\cdot b \in S$ for all $a,b\in S$
+    \item $a + (-b) \in S$ for all $a, b \in S$
+    \item $a \cdot b \in S$ for all $a, b \in S$
 \end{enumerate}
 
 \subsection*{1.}
-On $R$, we derive that
-$${0_R}^n = {0_R}^{n-1}\cdot{0_R} = {0_R} \text{ for any positive integer } n $$
-Thus $0_R$ is nilpotent. $\Leftrightarrow$ $0_R \in S$
+We observe that ${0_R}^1 = 0_R$. \\
+Thus, $0_R$ is nilpotent, which means $0_R \in S$.
 
 \subsection*{2.}
-we will prove this in two step
-\begin{itemize}
-    \item 1: $(-a)\in S$
-    \item 2: $a+b\in S$
-\end{itemize}
-
-\subsubsection*{$\bullet$ 1:}
-Let $a\in S$, then there is some positive integer $n$ such that $a^n = 0_R$  \\
-Since $R$ is a ring, there is $(-a)\in R$
-\begin{itemize}
-    \item[--] \textbf{Case 1: $n$ is even.} \\
-    Let $n = 2k$ for some integer $k$ \\
-    Then $(-a)^n = (-a)^{2k} = ((-a)^2)^k = (a^2)^k = a^{2k} = (a^k)^2 = (0_R)^2 = 0_R$ \\
-    \item[--] \textbf{Case 2: $n$ is odd.} \\
-    Let $n = 2k+1$ for some integer $k$ \\
-    Then $(-a)^n = (-a)^{2k+1} = (-a)^{2k}\cdot(-a) = 0_R\cdot(-a) = 0_R$ \\
-\end{itemize}
-Thus $(-a)$ is $nilpotent$ $\Leftrightarrow$ $(-a)\in S$
-
-\subsubsection*{$\bullet$ 2:}
-Let $a,b\in S$, then there are some positive integer $n,m$ such that $a^n = 0_R, b^m = 0_R $ \\
-Consider the expansion
-\[
-(a+b)^{n+m} = \sum (\text{terms of the form } C \cdot a^i b^j \text{ where } i+j = n+m)
-\]
-This follows from that $R$ is a commutative ring.\\
-For each term, $i \ge n$ or $j \ge m$ holds (otherwise $i+j < n+m$).
-\begin{itemize}
-    \item[--] \textbf{Case 1: $i \ge n$} \\
-    $a^ib^j = (a^n \cdot a^{i-n})b^j = (0_R \cdot a^{i-n})b^j = 0_R$
-    \item[--] \textbf{Case 2: $j \ge m$} \\
-    $a^ib^j = a^i(b^m \cdot b^{j-m}) = a^i(0_R \cdot b^{j-m}) = 0_R$
-\end{itemize}
-We obtain that $a^ib^j = 0_R \text{ where } i+j = n+m$, moreover
-\[
-(a+b)^{n+m} = \sum (\text{terms of the form } C \cdot 0_R) = 0_R
-\]
-Thus, $a+b$ is $nilpotent$ $\Leftrightarrow$ $a+b \in S$.
+We will prove this in two steps$((-a) \in S$ and $a+b \in S)$.
+\begin{enumerate}
+    \item $(-a) \in S$\\[5pt]
+    Let $a \in S$. Then there is some positive integer $n$ such that $a^n = 0_R$. \\
+    Since $R$ is a ring, $(-a) \in R$.
+    \begin{itemize}
+        \item[--] \textbf{Case 1: $n$ is even.} \\
+        Let $n = 2k$ for some integer $k$. \\
+        Then $(-a)^n = (-a)^{2k} = ((-a)^2)^k = (a^2)^k = a^{2k} = a^n = 0_R$.
+        \item[--] \textbf{Case 2: $n$ is odd.} \\
+        Let $n = 2k+1$ for some integer $k$. \\
+        Then $(-a)^n = (-a)^{2k+1} = (-a)^{2k}\cdot(-a) = a^{2k}\cdot(-a) = -(a^{2k}\cdot a) = -a^{2k+1} = -a^n = -0_R = 0_R$.
+    \end{itemize}
+    Thus, $(-a)$ is nilpotent, which means $(-a) \in S$.
+    
+    \item $a+b \in S$\\[5pt]
+    Let $a, b \in S$. Then there are some positive integers $n, m$ such that $a^n = 0_R$ and $b^m = 0_R$. \\
+    Consider the expansion
+    \[
+    (a+b)^{n+m} = \underbrace{(a+b)(a+b)\cdots(a+b)}_{n+m \text{ times}}
+    \]
+    Since $R$ is a commutative ring, we can rearrange the multiplication order of $a$ and $b$ in each term. Thus, the expansion consists of a sum of terms of the form $a^i b^j$, where $i+j = n+m$.
+    \[
+    (a+b)^{n+m} = \sum (\text{terms of the form } a^i b^j)
+    \]
+    For each term $a^i b^j$, either $i \ge n$ or $j \ge m$ must hold (otherwise $i+j < n+m$).
+    \begin{itemize}
+        \item[--] \textbf{Case 1: $i \ge n$} \\
+        $a^ib^j = (a^n \cdot a^{i-n})b^j = (0_R \cdot a^{i-n})b^j = 0_R$
+        \item[--] \textbf{Case 2: $j \ge m$} \\
+        $a^ib^j = a^i(b^m \cdot b^{j-m}) = a^i(0_R \cdot b^{j-m}) = 0_R$
+    \end{itemize}
+    Since every term $a^ib^j = 0_R$, we obtain
+    \[
+    (a+b)^{n+m} = 0_R
+    \]
+    Thus, $a+b$ is nilpotent, so $a+b \in S$.
+\end{enumerate}
+By steps 1 and 2, we have $a + (-b) \in S$ for all $a, b \in S$.
 
 \subsection*{3.}
-Let $a,b\in S$, then there are some positive integer $n$ such that $a^n = 0_R$  \\
-Then $(a\cdot b)^n = a^n\cdot b^n = 0_R\cdot b^n = 0_R$ (since $R$ is a commutative ring)\\
-Thus $a\cdot b$ is $nilpotent$. $\Leftrightarrow$ $a\cdot b \in S$
+Let $a, b \in S$. Then there is some positive integer $n$ such that $a^n = 0_R$. \\
+Since $R$ is a commutative ring,
+\[
+(a \cdot b)^n = a^n \cdot b^n = 0_R \cdot b^n = 0_R
+\]
+Thus, $a \cdot b$ is nilpotent, so $a \cdot b \in S$.
 
 \subsection*{$\therefore$ $S$ is a subring of $R$}
 

@@ -45,4 +45,5 @@
     "latex-workshop.latex.autoBuild.run": "onSave",
     "latex-workshop.latex.autoClean.run": "onBuilt",
     "latex-workshop.view.pdf.viewer": "tab",
+    //"workbench.colorTheme": "Dark Modern",
 ```

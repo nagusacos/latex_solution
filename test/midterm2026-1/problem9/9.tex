@@ -14,8 +14,84 @@
 
 \begin{document}
 \maketitle
+%Let $F = \mathbb{R} \times \mathbb{R}$ with the identity element$0_F = (0,0)$ under $\oplus$.\\
+\section*{Problem}
+Define two binary operations $\oplus$ and $\odot$ on the Cartesian product $\mathbb{R}\times \mathbb{R}$ as follows:\\
+for $(a,b), (c,d) \in \mathbb{R}\times \mathbb{R}$
+\begin{align*}
+    (a,b) \oplus (c,d) &:= (a+c, b+d) \\
+    (a,b) \odot (c,d) &:= (ac-bd, ad+bc)
+\end{align*}
+It is well known that $\langle \mathbb{R} \times \mathbb{R}, \oplus \rangle$ is an abelian group.
+Prove that $\langle \mathbb{R}\times \mathbb{R}, \oplus, \odot \rangle$ is a field.
 
-\section*{Main}
+\section*{Proof}
+Let $F = \mathbb{R} \times \mathbb{R}$ with the identity element $0_F = (0,0)$ under $\oplus$.\\
+Since it is given that $\langle F, \oplus \rangle$ is an abelian group,
+we only need to verify the following to prove that $F$ is a field:
+\begin{enumerate}
+    \item $\odot$ is commutative
+    \item $\odot$ is associative
+    \item $\odot$ and $\oplus$ satisfy the distributive law
+    \item Existence of the unity $1_F \neq 0_F$
+    \item Every nonzero element is a unit
+\end{enumerate}
+Let $x = (a,b), y = (c,d)$, and $z = (e,f) \in F$.\\
+Note that multiplication and addition in $\mathbb{R}$ are commutative and associative.
 
+\subsection*{1. $\odot$ is commutative}
+\begin{align*}
+    x \odot y &= (a,b) \odot (c,d) \\
+    &= (ac-bd, ad+bc) \\
+    &= (ca-db, cb+da) \\
+    &= (c,d) \odot (a,b) = y \odot x
+\end{align*}
 
+\subsection*{2. $\odot$ is associative}
+\begin{align*}
+    (x \odot y) \odot z &= (ac-bd, ad+bc) \odot (e,f) \\
+    &= ((ac-bd)e - (ad+bc)f, (ac-bd)f + (ad+bc)e) \\
+    &= (ace - bde - adf - bcf, acf - bdf + ade + bce)\\
+    &= (ace - adf - bcf - bde, acf + ade + bce - bdf)\\
+    &= (a(ce-df) - b(cf+de), a(cf+de) + b(ce-df)) \\
+    &= (a,b) \odot (ce-df, cf+de) \\
+    &= x \odot (y \odot z)
+\end{align*}
+
+\subsection*{3. $\odot$ and $\oplus$ satisfy the distributive law}
+\begin{align*}
+    x \odot (y \oplus z) &= (a,b) \odot (c+e, d+f) \\
+    &= (a(c+e) - b(d+f), a(d+f) + b(c+e)) \\
+    &= (ac+ae - bd-bf, ad+af + bc+be) \\
+    &= (ac-bd + ae-bf, ad+bc + af+be) \\
+    &= (ac-bd, ad+bc) \oplus (ae-bf, af+be) \\
+    &= (x \odot y) \oplus (x \odot z)
+\end{align*}
+(Since $\odot$ is commutative, the right distributive law also follows.)
+
+\subsection*{4. Existence of the unity $1_F \neq 0_F$}
+Consider the element $(1,0) \in F$. \\
+For any $(a,b) \in F$, 
+\[
+    (a,b) \odot (1,0) = (a\cdot 1 - b \cdot 0, a \cdot 0 + b \cdot 1) = (a,b)
+\]
+Since $0_F = (0,0)$, we have $(1,0) \neq 0_F$. \\
+Thus, $(1,0) = 1_F$ is the unity of $F$.
+
+\subsection*{5. Every nonzero element is a unit}
+Let $x = (a,b) \in F$ be a nonzero element, which means $(a,b) \neq (0,0)$.\\
+Then $a^2 + b^2 \neq 0$ since $a,b \in \mathbb{R}$.\\
+Consider the element $x^{-1} = \left( \frac{a}{a^2+b^2}, \frac{-b}{a^2+b^2} \right) \in F$.
+\begin{align*}
+    x\odot x^{-1} &= (a,b) \odot \left( \frac{a}{a^2+b^2}, \frac{-b}{a^2+b^2} \right)\\
+    &= \left( a\left(\frac{a}{a^2+b^2}\right) - b\left(\frac{-b}{a^2+b^2}\right), a\left(\frac{-b}{a^2+b^2}\right) + b\left(\frac{a}{a^2+b^2}\right) \right) \\
+    &= \left( \frac{a^2+b^2}{a^2+b^2}, \frac{-ab+ab}{a^2+b^2} \right) \\
+    &= (1,0)\\
+    &= 1_F
+\end{align*}
+(Since $\odot$ is commutative, $x^{-1} \odot x = 1_F$ also holds.)\\
+We have that $x^{-1}$ is a multiplicative inverse of $x$.\\
+Thus, every nonzero element is a unit.
+
+\subsection*{$\therefore$ $\langle \mathbb{R}\times \mathbb{R}, \oplus, \odot \rangle$ is a field.}
 \end{document}

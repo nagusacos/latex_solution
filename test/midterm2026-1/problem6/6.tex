@@ -16,13 +16,53 @@
 \maketitle
 
 \section*{Problem}
-Let $R$ be a ring, and let $c=$ char $R$.\\
+Let $R$ be a ring, and let $c = \text{char } R$.
 Prove that
 \begin{enumerate}
-    \item If $R$ is a finite ring, then $c>0$.
-    \item If $R$ is an intgeral domain, then, $c$ is $0$ or a prime.
+    \item If $R$ is a finite ring, then $c > 0$.
+    \item If $R$ is an integral domain, then $c$ is $0$ or a prime.
 \end{enumerate}
 
 \section*{Proof}
+Before begining, we introduce the definition of the set $S$ used in the proof
+\[
+S = \{n \mid n \text{ is a positive integer such that } {}_n 1_R = 0_R \text{ on } R\}
+\]
+
+\subsection*{1.}
+Let $R$ be a finite ring with $|R| = N < \infty$.\\
+On $R$, consider $N+1$ elements
+\[
+{}_1 1_R,\quad {}_2 1_R,\quad \dots ,\quad {}_{N+1} 1_R
+\]
+By the Pigeonhole Principle, there are positive integers $i,j$ such that $i < j$ and ${}_i 1_R = {}_j 1_R$.
+\[
+\Rightarrow 0_R = {}_j 1_R + (-({}_i 1_R)) = {}_j 1_R + {}_{-i} 1_R = {}_{j-i} 1_R
+\]
+Since $j-i > 0$, $(j-i)$ is a positive integer satisfying ${}_{(j-i)} 1_R = 0_R$.\\
+We found $(j-i) \in S$, i.e., $S \neq \emptyset$.\\
+Thus $c = \text{char } R > 0$.
+
+\subsection*{2.}
+Let $R$ be an integral domain.\\
+We will check the two cases based on whether $S$ is empty or not:
+\begin{itemize}
+    \item[--] \textbf{Case 1: $S = \emptyset$}\\
+    By the definition of the characteristic of a ring, if no such positive integer exists satisfying ${}_n 1_R = 0_R$, then $c = \text{char } R = 0$.
+
+    \item[--] \textbf{Case 2: $S \neq \emptyset$}\\
+    Since $S$ is a non-empty subset of natural numbers, it has a minimum element by the Well-Ordering Principle.
+    By the definition of $\text{char } R$, let this minimum element be $c$.\\[10pt]
+    For contradiction, suppose that $c$ is not a prime.\\
+    Then it can be expressed as a product of two integers $n$ and $m$ such that $c = nm$, with $1 < n, m < c$.
+    \begin{align*}
+        &\Rightarrow {}_c 1_R = {}_{nm} 1_R = ({}_n 1_R)({}_m 1_R) = 0_R \\
+        &\Rightarrow {}_n 1_R = 0_R \text{ or } {}_m 1_R = 0_R \qquad \because \text{ an integral domain has no zero divisors}\\
+        &\Rightarrow n \in S \text{ or } m \in S
+    \end{align*}
+    Since both $n < c$ and $m < c$, this contradicts the assumption that $c$ is the minimum element of $S$.\\
+    By contradiction, $c$ is a prime.
+\end{itemize}
+Thus $c$ is $0$ or a prime.
 
 \end{document}

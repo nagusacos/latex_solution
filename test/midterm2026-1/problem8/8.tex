@@ -31,6 +31,59 @@ Show that
     \item The subset $S = \{f \in C \mid f(3)=0\}$ is a subring of $C$.
     \item $C$ is not an integeral domain
 \end{enumerate}
+
 \section*{Proof}
+
+\subsection*{1.}
+Let $S = \{f \in C \mid f(3)=0\}$ be a subset of $C$.\\
+We will verify the following to prove that $S$ is a subring of $C$
+\begin{enumerate}
+    \item $0_C \in S$\\
+    Let $0_C$ be the zero function defined by $0_C(x) = 0$ for all $x \in \mathbb{R}$.\\
+    $0_C$ is continuous and $0_C(3) = 0$.\\
+    Thus, $0_C \in S$.\\
+    Moreover, since $0_C(x) + f(x) = f(x)$ for all $f \in S$, $0_C$ is the identity element of $C$.
+    
+    \item $f \oplus (-g) \in S$ for all $f,g \in S$\\
+    Let $f, g \in S$. Then $f(3) = 0$ and $g(3) = 0$. 
+    We observe that
+    $$(f \oplus (-g))(3) = f(3) + (-g)(3) = f(3) - g(3) = 0 - 0 = 0$$
+    Since the difference of two continuous functions is continuous, $f \oplus (-g) \in S$.
+    
+    \item $f \odot g \in S$ for all $f,g \in S$\\
+    Let $f, g \in S$. Then $f(3) = 0$ and $g(3) = 0$.
+    We observe that
+    $$(f \odot g)(3) = f(3)\cdot g(3) = 0 \cdot 0 = 0$$
+    Since the product of two continuous functions is continuous, $f \odot g \in S$.
+\end{enumerate}
+Thus $S$ is a subring of $C$.
+
+\subsection*{2.}
+To prove that $C$ is not an integral domain, we will find zero divisors in $C$.\\
+Define $f, g$ as follows
+\begin{align*}
+    f(x) &= 
+    \begin{cases} 
+        x & \text{if } x \geq 0 \\ 
+        0 & \text{if } x < 0
+    \end{cases} \\
+    g(x) &= 
+    \begin{cases} 
+        0 & \text{if } x \geq 0 \\ 
+        x & \text{if } x < 0 
+    \end{cases}
+\end{align*}
+Clearly, both $f$ and $g$ are continuous functions on $\mathbb{R}$, so $f, g \in C$. \\
+We observe that for any $x \in \mathbb{R}$,
+\[
+(f \cdot g)(x) =
+\begin{cases} 
+    x \cdot 0 = 0 & \text{if } x \geq 0 \\ 
+    0 \cdot x = 0 & \text{if } x < 0
+\end{cases}
+\]
+Since $(f \cdot g)(x) = 0$ for all $x$, this implies $f \odot g = 0_C$. \\
+Because $f \neq 0_C$ and $g \neq 0_C$, both $f$ and $g$ are zero divisors.\\
+Thus $C$ is not an integral domain.
 
 \end{document}

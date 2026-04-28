@@ -14,11 +14,10 @@
 
 \begin{document}
 \maketitle
-%================================================================
 
 \section*{Problem}
-We say that an element $e$ of a ring is $idempotent$ if $e^2=e$.\\
-Prove that the set of all $idempotent$ elemnets of $M_2(\mathbb{R})$ is
+We say that an element $e$ of a ring is idempotent if $e^2=e$.\\
+Prove that the set of all idempotent elements of $M_2(\mathbb{R})$ is
 \[
 \left\{
 \begin{bmatrix}
@@ -43,5 +42,50 @@ bc = a(1-a)
 \]
 
 \section*{Proof}
+Suppose $E = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \in M_2(\mathbb{R})$ is an idempotent element such that $E^2 = E$.\\
+Then,
+\[
+\begin{bmatrix} a & b \\ c & d \end{bmatrix}
+\begin{bmatrix} a & b \\ c & d \end{bmatrix}
+=
+\begin{bmatrix} a^2+bc & ab+bd \\ ac+cd & bc+d^2 \end{bmatrix}
+=
+\begin{bmatrix} a & b \\ c & d \end{bmatrix}
+\]
+By equating the corresponding entries, we derive that
+\begin{align}
+    a^2+bc &= a \quad \Rightarrow \quad bc = a(1-a) \\
+    ab+bd &= b \quad \Rightarrow \quad b(a+d-1) = 0 \\
+    ac+cd &= c \quad \Rightarrow \quad c(a+d-1) = 0 \\
+    bc+d^2 &= d \quad \Rightarrow \quad bc = d(1-d)
+\end{align}
+By (1) and (4), we get $a(1-a) = d(1-d)$.\\
+Then,
+\[
+a - a^2 = d - d^2 \quad \Rightarrow \quad (a-d) - (a^2-d^2) = 0 \quad \Rightarrow \quad (a-d)(1 - a - d) = 0
+\]
+Thus, we only need to check two cases: $a+d = 1$ or $a = d$.
 
+\subsection*{Case 1: $a+d = 1$}
+In this case, $d = 1-a$.\\
+Equations (2) and (3) obviously hold.\\
+Equation (1) remains $bc = a(1-a)$.\\
+This implies that 
+\begin{itemize}
+    \item $E = \begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} a & b \\ c & 1-a \end{bmatrix}$ where $bc = a(1-a)$.
+\end{itemize}
+
+\subsection*{Case 2: $a=d$ (and $a+d \neq 1$)}
+Since $a+d \neq 1$, we know $(a+d-1) \neq 0$.\\
+Then, by equations (2) and (3), we must have $b=0$ and $c=0$.\\
+Substituting $b=0$ and $c=0$ into equation (1) yields
+\[
+0 = a(1-a) \quad \Rightarrow \quad a=0 \text{ or } a=1
+\]
+\begin{itemize}
+    \item If $a=0$, then $d=0$, which gives $E = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix}$.
+    \item If $a=1$, then $d=1$, which gives $E = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$.
+\end{itemize}
+
+\subsection*{$\therefore$ The set of all idempotent elements of $M_2(\mathbb{R})$ is exactly the given set.}
 \end{document}

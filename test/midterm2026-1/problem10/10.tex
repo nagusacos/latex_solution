@@ -16,7 +16,119 @@
 \maketitle
 
 \section*{Problem}
+Consider the subset $D = \{ a + b\sqrt{11} \mid a,b \in \mathbb{Z} \}$ of the field $\mathbb{R}$.
+\begin{enumerate}
+    \item Prove that $D$ is a subdomain of $\mathbb{R}$.
+    \item Prove that $Q = \{ r + s\sqrt{11} \mid r, s \in \mathbb{Q} \}$ is a field of fractions of $D$ in $\mathbb{R}$.
+    \item Show that the map $f : Q \to Q$ defined by
+    \[
+    f(r + s\sqrt{11}) = r - s\sqrt{11} \quad (r, s \in \mathbb{Q})
+    \]
+    is an isomorphism.
+\end{enumerate}
 
 \section*{Proof}
+
+\subsection*{1. $D$ is a subdomain of $\mathbb{R}$}
+First, we will show the following to prove that $D$ is a subring of $\mathbb{R}$.
+\begin{enumerate}
+    \item $0 \in D$\\
+    Since $0\in \mathbb{Z}$, we have $0+0\cdot \sqrt{11} = 0 \in D$.
+
+    \item $x + (-y) \in D$ for all $x, y \in D$\\
+    Let $x = a + b\sqrt{11}, y = c + d\sqrt{11} \in D$.\\
+    Then,
+    \[
+        x + (-y) = (a + b\sqrt{11}) + (-c -d\sqrt{11}) = (a-c) + (b-d)\sqrt{11}
+    \]
+    Since $a-c \in \mathbb{Z}$ and $b-d \in \mathbb{Z}$, we have $x + (-y) \in D$.
+
+    \item $x \cdot y \in D$ for all $x, y \in D$\\
+    Let $x = a + b\sqrt{11}, y = c + d\sqrt{11} \in D$.\\
+    Then,
+    \[
+        x \cdot y = (a + b\sqrt{11}) \cdot (c + d\sqrt{11}) = (ac+11bd) + (ad+bc)\sqrt{11}
+    \]
+    Since $ac+11bd \in \mathbb{Z}$ and $ad+bc \in \mathbb{Z}$, we have $x \cdot y \in D$.
+\end{enumerate}
+Now, we only need to show that $1 \in D$ because $\mathbb{R}$ is a field\\
+Since $1,0\in \mathbb{Z}$, we have $1+0\cdot \sqrt{11} = 1 \in D$.\\
+Thus, $D$ is a subdomain of $\mathbb{R}$.
+
+
+\subsection*{2. $Q$ is a field of fractions of $D$ in $\mathbb{R}$}
+Let $Q = \{ r + s\sqrt{11} \mid r, s \in \mathbb{Q} \}$ be the subset of $\mathbb{R}$.\\
+Recall from section 1 that $D$ is a subdomain of $\mathbb{R}$.\\
+Consider the subset 
+\[
+Q' = \{ xy^{-1} \mid x,y \in D \text{ s.t. } y \neq 0\}
+\]
+of $\mathbb{R}$, which is the field of fractions of $D$.\\
+We claim that $Q = Q'$.\\
+We will prove this in two steps ($Q \subseteq Q'$ and $Q' \subseteq Q$).
+
+\begin{enumerate}
+    \item $Q \subseteq Q'$\\
+    Let $x \in Q$. Then,
+    \begin{align*}
+        x &= r+s\sqrt{11} \text{ for some } r,s \in \mathbb{Q}\\
+        &= \frac{n_1}{m_1} + \frac{n_2}{m_2}\sqrt{11} \text{ for some } n_1, n_2, m_1, m_2 \in \mathbb{Z} \text{ s.t. } m_1, m_2 \neq 0\\
+        &= \frac{n_1 m_2 + n_2 m_1\sqrt{11}}{m_1 m_2}\\
+        &= (n_1 m_2 + n_2 m_1\sqrt{11}) \cdot (m_1 m_2)^{-1}
+    \end{align*}
+    Since $n_1 m_2 + n_2 m_1\sqrt{11} \in D$ and $m_1 m_2 \in D$ (with $m_1 m_2 \neq 0$), we have $x \in Q'$.\\
+    Thus, $Q \subseteq Q'$.
+
+    \item $Q' \subseteq Q$\\
+    Let $q \in Q'$. Then,
+    \begin{align*}
+        q &= (a + b\sqrt{11}) \cdot (c + d\sqrt{11})^{-1} \text{ for some } a,b,c,d \in \mathbb{Z} \text{ s.t. } c + d\sqrt{11} \neq 0\\
+        &= \frac{a + b\sqrt{11}}{c + d\sqrt{11}}\\
+        &= \frac{(a + b\sqrt{11}) \cdot (c - d\sqrt{11})}{(c + d\sqrt{11}) \cdot (c - d\sqrt{11})}\\
+        &= \frac{(ac - 11bd) + (bc - ad)\sqrt{11}}{c^2 - 11d^2}\\
+        &= \left(\frac{ac - 11bd}{c^2 - 11d^2}\right) + \left(\frac{bc - ad}{c^2 - 11d^2}\right)\sqrt{11}
+    \end{align*}
+    we know $c^2 - 11d^2 \neq 0$ because $\sqrt{11}$ is irrational and $c+d\sqrt{11} \neq 0$, \\
+    Since $\left(\frac{ac - 11bd}{c^2 - 11d^2}\right) \in \mathbb{Q}$ and
+    $\left(\frac{bc - ad}{c^2 - 11d^2}\right) \in \mathbb{Q}$, we have $q \in Q$.\\
+    Thus, $Q' \subseteq Q$.
+\end{enumerate}
+By steps 1 and 2, we have $Q=Q'$.\\
+Thus, $Q$ is a field of fractions of $D$.
+
+
+
+\subsection*{3. $f$ is an isomorphism}
+Let $x = r_1 + s_1\sqrt{11} \in Q$ and $y = r_2 + s_2\sqrt{11} \in Q$.
+
+\begin{itemize}
+    \item \textbf{Homomorphism}
+    \begin{align*}
+        f(x+y) &= f((r_1+r_2) + (s_1+s_2)\sqrt{11}) \\
+        &= (r_1+r_2) - (s_1+s_2)\sqrt{11} \\
+        &= (r_1-s_1\sqrt{11}) + (r_2-s_2\sqrt{11}) \\
+        &= f(x) + f(y)
+    \end{align*}
+    \begin{align*}
+        f(xy) &= f((r_1r_2+11s_1s_2) + (r_1s_2+r_2s_1)\sqrt{11}) \\
+        &= (r_1r_2+11s_1s_2) - (r_1s_2+r_2s_1)\sqrt{11} \\
+        &= (r_1-s_1\sqrt{11})(r_2-s_2\sqrt{11}) \\
+        &= f(x)f(y)
+    \end{align*}
+    Thus, $f$ is a ring homomorphism.
+    
+    \item \textbf{Injective function}\\
+    Suppose $f(x) = 0$. Then $r_1 - s_1\sqrt{11} = 0$.\\
+    Since $\sqrt{11}$ is irrational and $r_1, s_1 \in \mathbb{Q}$, the only solution is $r_1=0$ and $s_1=0$.\\
+    Then $x = 0$, which means $\ker(f) = \{0\}$.\\
+    Thus $f$ is injective.
+    
+    \item \textbf{Surjective function}\\
+    For any $w = u + v\sqrt{11} \in Q$ (where $u,v \in \mathbb{Q}$), consider the element $z = u - v\sqrt{11} \in Q$.
+    Then, $f(z) = u - (-v)\sqrt{11} = u + v\sqrt{11} = w$.\\
+    Thus $f$ is surjective.
+\end{itemize}
+Since $f$ is a bijective homomorphism, $f$ is an isomorphism.
+
 
 \end{document}
